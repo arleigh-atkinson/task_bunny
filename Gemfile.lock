@@ -226,7 +226,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   materialize-sass
-  paperclip
+  paperclip (~> 4.3)
   pg
   rails (= 4.2.4)
   rspec-rails

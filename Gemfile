@@ -6,7 +6,7 @@ gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 gem 'haml-rails'
-gem 'paperclip'
+gem 'paperclip', "~> 4.3"
 gem 'materialize-sass'
 gem 'devise'
 # Use SCSS for stylesheets
