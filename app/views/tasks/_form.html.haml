@@ -1,24 +1,25 @@
-%h1
-= form_for @task, html: {multipart: true} do |f|
-  = f.label :name
-  = f.text_field :name
+.section.white
+  .container
+    = form_for @task, html: {multipart: true} do |f|
+      = f.label :name
+      = f.text_field :name
 
-  = f.label :description
-  = f.text_area :description
+      = f.label :description
+      = f.text_area :description
 
-  = f.label :location
-  = f.text_field :location
+      = f.label :location
+      = f.text_field :location
 
-  = f.label :tokens
-  = f.text_field :tokens
+      = f.label :tokens
+      = f.text_field :tokens
 
-  = f.label :category
-  = f.select :category, options_for_select(['Help Moving', 'Handyman', 'Cleaning', 'Shopping + Delivery', 'Parties + Events'])
+      = f.label :category
+      = f.select :category, options_for_select(['Help Moving', 'Handyman', 'Cleaning', 'Shopping + Delivery', 'Parties + Events'])
 
-  %br
+      %br
 
-  = f.file_field :image
+      = f.file_field :image
 
-  = f.hidden_field :user_id, {value: current_user.id}
+      = f.hidden_field :user_id, {value: current_user.id}
 
-  = f.submit
+      = f.submit class: 'btn'

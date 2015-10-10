@@ -23,7 +23,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to root_path
+      redirect_to tasks_path
     else
       render :new
     end
@@ -34,8 +34,8 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    if @task.update
-      redirect_to root_path
+    if @task.update(task_params)
+      redirect_to user_path(current_user)
     else
       render :edit
     end
@@ -52,7 +52,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:name, :location, :description, :assigned_user_id, :tokens, :image, :user_id)
+      params.require(:task).permit(:name, :location, :description, :assigned_user_id, :tokens, :image, :user_id, :category, :complete)
     end
 
 end

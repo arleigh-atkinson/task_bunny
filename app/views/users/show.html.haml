@@ -10,38 +10,71 @@
     = @user.last_name
     %br
     = @user.email
+    %br
+    Tokens: 125
 
 %h1 Requested Tasks
 - @requested_tasks.each do |x|
   .row
-    .col.s12.m6
-      .card.blue-grey.darken-1
-        .card-content.white-text
-          %h4.card-title.center-align= x.name.titleize
-          %p
-            Description: #{x.description}
-          %p
-            Where: #{x.location}
-          %p
-            Event Created: #{x.created_at.strftime("%m/%d/%Y")}
-        .card-action
-          %a{:href => "#"} who created
-          %a{:href => "#"} who completed it?
+    .card.green.darken-1.col.s12.m5
+      .card-content.white-text
+        %h4.card-title.center-align= x.name.titleize
+        %p
+          Description: #{x.description}
+        %p
+          Where: #{x.location}
+        %p
+          Event Created: #{x.created_at.strftime("%m/%d/%Y")}
+        %p
+          Posted By: #{x.user.email}
+        %p
+          Tokens: #{x.tokens}
+        %p
+          Category: #{x.category}
+        .card-action.center
+          - if x.user_id != current_user.id
+            - if x.complete != true
+              %a
+                = link_to 'Claim Task', assign_path(:task_id => x.id), class: 'btn white-text'
+            - else
+              %a.white-text
+                = link_to 'Completed', class: 'white-text'
+            %a
+              = link_to "#{x.user.first_name}'s Profile", user_path(x.user.id), class: 'btn right-align white-text'
+          - else
+            %a
+              = link_to 'Edit Task', edit_task_path(x), class: 'btn right-align white-text'
 
 
 %h1 Claimed Tasks
 - @claimed_tasks.each do |x|
   .row
-    .col.s12.m6
-      .card.blue-grey.darken-1
-        .card-content.white-text
-          %h4.card-title.center-align= x.name.titleize
-          %p
-            Description: #{x.description}
-          %p
-            Where: #{x.location}
-          %p
-            Event Created: #{x.created_at.strftime("%m/%d/%Y")}
-        .card-action
-          %a{:href => "#"} who created
-          %a{:href => "#"} who completed it?
+    .card.green.darken-1.col.s12.m5
+      .card-content.white-text
+        %h4.card-title.center-align= x.name.titleize
+        %p
+          Description: #{x.description}
+        %p
+          Where: #{x.location}
+        %p
+          Event Created: #{x.created_at.strftime("%m/%d/%Y")}
+        %p
+          Posted By: #{x.user.email}
+        %p
+          Tokens: #{x.tokens}
+        %p
+          Category: #{x.category}
+        .card-action.center
+          - if x.assigned_user_id == current_user.id
+            - if x.complete != true
+              %a
+                = link_to 'Mark as Complete', complete_path(:task_id => x.id), class: 'btn white-text'
+            - else
+              %a
+                = link_to 'Completed', complete_path(:task_id => x.id), class: 'btn white-text disabled'
+            %a
+              = link_to "#{x.user.first_name}'s Profile", user_path(x.user.id), class: 'btn right-align white-text'
+          - else
+            %a
+              = link_to 'Edit Task', edit_task_path(x), class: 'btn right-align white-text'
+          
