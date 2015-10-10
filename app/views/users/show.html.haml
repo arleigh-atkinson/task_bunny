@@ -1,2 +1,24 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+- if @user.id == current_user.id
+  = "Welcome, #{current_user.first_name}"
+  %br
+= @user.first_name
+= @user.last_name
+= @user.email
+
+%h1 Requested Tasks
+- @requested_tasks.each do |task|
+  = task.name
+  |
+  = task.location
+  |
+  = task.description
+  %br
+
+%h1 Claimed Tasks
+- @claimed_tasks.each do |task|
+  = task.name
+  |
+  = task.location
+  |
+  = task.description
+  %br

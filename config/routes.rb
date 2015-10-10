@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'static_pages/about'
 
+  get '/assign', to: 'tasks#assign_task'
+
   resources :tasks
   resources :users
 
