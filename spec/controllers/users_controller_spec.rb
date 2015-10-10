@@ -10,9 +10,10 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "GET #show" do
-    it "returns http success" do
-      get :show
-      expect(response).to have_http_status(:success)
+    it "returns a user" do
+      user = User.create(first_name: 'Caleb')
+      get :show, {id: user.id}
+      expect(user.first_name).to eq('Caleb')
     end
   end
 
