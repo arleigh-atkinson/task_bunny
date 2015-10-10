@@ -1,15 +1,21 @@
 <nav class = "transparent z-depth-0">
     <div class="">
-      <a href="/" class="brand-logo">    <%= image_tag "taskbunny.png" %></a>
+      <a href="/" class="brand-logo"><%= image_tag "taskbunny.png" %></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Tasks', tasks_path %></li>
+        <li><%= link_to 'Profile', static_pages_profile_path %></li>
         <li><%= link_to 'Log Out',destroy_user_session_path, method: :delete %></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Tasks', tasks_path %></li>
+        <li><%= link_to 'Profile', static_pages_profile_path %></li>
         <li><%= link_to 'Log Out',destroy_user_session_path, method: :delete %></li>
         <li></li>
       </ul>
     </div>
   </nav>
+
+TODO: users, 

@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20151010194155) do
     t.boolean  "complete"
   end
 
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
