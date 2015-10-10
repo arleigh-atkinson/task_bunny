@@ -16,6 +16,18 @@ RSpec.describe TasksController, type: :controller do
     end
   end
 
+  describe "POST #create" do
+    it "creates a new task with name of Hide this thing" do
+      task_params = {task:{name: 'Hide this thing', location: 'Salt Lake City, UT', description: 'lots of words'}}
+      expect(Task.count).to eq(0)
+      post :create, task_params
+      expect(Task.count).to eq(1)
+      expect(Task.last.name).to eq("Hide this thing")
+      expect(Task.last.location).to eq('Salt Lake City, UT')
+      expect(Task.last.description).to eq("lots of words")
+    end
+  end
+
   describe "GET #edit" do
     it "returns http success" do
       get :edit
