@@ -14,6 +14,12 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def complete_task
+    @task = Task.find(params[:task_id])
+    @task.mark_task
+    redirect_to user_path(current_user)
+  end
+
   def create
     @task = Task.new(task_params)
     if @task.save

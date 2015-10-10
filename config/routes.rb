@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'static_pages/about'
 
   get '/assign', to: 'tasks#assign_task'
+  get '/complete', to: 'tasks#complete_task'
 
   resources :tasks
   resources :users

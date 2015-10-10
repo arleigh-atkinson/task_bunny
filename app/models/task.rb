@@ -7,4 +7,8 @@ class Task < ActiveRecord::Base
   def set_task(user)
     self.update(assigned_user_id: user.id)
   end
+
+  def mark_task
+    self.update(complete: true)
+  end
 end
