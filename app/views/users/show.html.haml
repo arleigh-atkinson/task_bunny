@@ -1,32 +1,47 @@
 - if @user.id == current_user.id
-  = "Welcome, #{current_user.first_name}"
+  %h1
+    = "Welcome, #{current_user.first_name}"
   %br
-= @user.first_name
-= @user.last_name
-= @user.email
+.right-align
+  = image_tag @user.avatar.url(style: :thumb)
+  %h4
+    = @user.first_name
+    %br
+    = @user.last_name
+    %br
+    = @user.email
 
 %h1 Requested Tasks
-- @requested_tasks.each do |task|
-  = task.name
-  |
-  = task.location
-  |
-  = task.description
-  |
-  = task.tokens
-  |
-  = task.category
-  %br
+- @requested_tasks.each do |x|
+  .row
+    .col.s12.m6
+      .card.blue-grey.darken-1
+        .card-content.white-text
+          %h4.card-title.center-align= x.name.titleize
+          %p
+            Description: #{x.description}
+          %p
+            Where: #{x.location}
+          %p
+            Event Created: #{x.created_at.strftime("%m/%d/%Y")}
+        .card-action
+          %a{:href => "#"} who created
+          %a{:href => "#"} who completed it?
+
 
 %h1 Claimed Tasks
-- @claimed_tasks.each do |task|
-  = task.name
-  |
-  = task.location
-  |
-  = task.description
-  |
-  = task.tokens
-  |
-  = task.category
-  %br
+- @claimed_tasks.each do |x|
+  .row
+    .col.s12.m6
+      .card.blue-grey.darken-1
+        .card-content.white-text
+          %h4.card-title.center-align= x.name.titleize
+          %p
+            Description: #{x.description}
+          %p
+            Where: #{x.location}
+          %p
+            Event Created: #{x.created_at.strftime("%m/%d/%Y")}
+        .card-action
+          %a{:href => "#"} who created
+          %a{:href => "#"} who completed it?
