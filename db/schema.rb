@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20151010161720) do
   enable_extension "plpgsql"
 
   create_table "tasks", force: :cascade do |t|
-    t.integer  "user_id"
     t.string   "name"
     t.string   "location"
     t.text     "description"
@@ -29,6 +28,7 @@ ActiveRecord::Schema.define(version: 20151010161720) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

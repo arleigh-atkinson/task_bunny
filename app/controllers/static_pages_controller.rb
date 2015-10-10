@@ -6,8 +6,8 @@ class StaticPagesController < ApplicationController
   end
 
   def profile
-    @my_tasks = Task.all
-    @completed_tasks = Task.all
+    @requested_tasks = @user.tasks
+    @claimed_tasks = Task.where(assigned_user_id: current_user.id)
   end
   
 end
