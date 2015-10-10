@@ -10,8 +10,12 @@
     |
     = task.user_id
     |
+    = task.tokens
+    |
+    = task.category
+    |
     = link_to 'Claim Task', assign_path(:task_id => task.id)
-    
+
   - else
     = task.name
     |
@@ -20,6 +24,10 @@
     = task.description
     |
     = task.user_id
+    |
+    = task.tokens
+    |
+    = task.category
     |
     = link_to 'Edit Task', edit_task_path(task)
   %br

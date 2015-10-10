@@ -9,6 +9,14 @@
   = f.label :location
   = f.text_field :location
 
+  = f.label :tokens
+  = f.text_field :tokens
+
+  = f.label :category
+  = f.select :category, options_for_select(['Help Moving', 'Handyman', 'Cleaning', 'Shopping + Delivery', 'Parties + Events'])
+
+  %br
+
   = f.file_field :image
 
   = f.hidden_field :user_id, {value: current_user.id}
