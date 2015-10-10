@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151010161720) do
-=======
-ActiveRecord::Schema.define(version: 20151010154057) do
->>>>>>> add navbar, make static pages
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,17 +22,12 @@ ActiveRecord::Schema.define(version: 20151010154057) do
     t.text     "description"
     t.integer  "assigned_user_id"
     t.integer  "tokens"
-<<<<<<< HEAD
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-=======
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
->>>>>>> add navbar, make static pages
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,13 +45,10 @@ ActiveRecord::Schema.define(version: 20151010154057) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-<<<<<<< HEAD
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-=======
->>>>>>> add navbar, make static pages
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
