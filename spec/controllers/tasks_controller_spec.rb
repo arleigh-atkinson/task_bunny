@@ -29,10 +29,20 @@ RSpec.describe TasksController, type: :controller do
   end
 
   describe "GET #edit" do
-    it "returns http success" do
-      get :edit
-      expect(response).to have_http_status(:success)
+    it "returns edited task" do
+      task = Task.create(name:"Hide Stuff")
+      get :edit, {id: task.id}
+      expect(assigns(:task).title).to eq("Hide Stuff")
     end
   end
+ 
+  describe "PUT #update" do
+    it "updates a chore" do
+      task = Task.create(name:'Find Milk Price')
+      update_task = {id: task.id, task:{name: 'hide grandma'}}
+    put :update, update_task
+    task = task.reload
+    expect(task.title).to eq('hide grandma')     
+    end
 
 end
