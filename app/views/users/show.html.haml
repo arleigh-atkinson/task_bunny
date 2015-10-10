@@ -16,6 +16,7 @@
   = task.tokens
   |
   = task.category
+  |
   %br
 
 %h1 Claimed Tasks
@@ -29,4 +30,7 @@
   = task.tokens
   |
   = task.category
+  |
+  = link_to 'Mark as Complete', complete_path(:task_id => task.id)
+  |
   %br

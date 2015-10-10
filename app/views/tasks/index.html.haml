@@ -1,7 +1,7 @@
-%h1 All tasks
+%h1 Available tasks
 
 - @tasks.each do |task|
-  - if task.user_id != current_user.id
+  - if task.user_id != current_user.id && task.complete != true
     = task.name
     |
     = task.location
@@ -16,7 +16,7 @@
     |
     = link_to 'Claim Task', assign_path(:task_id => task.id)
 
-  - else
+  - elsif task.complete != true
     = task.name
     |
     = task.location
